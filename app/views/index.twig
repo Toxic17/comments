@@ -1,0 +1,36 @@
+{% extends 'assets/main.twig' %}
+{% block content %}
+    <div>
+        <article class="border m-3 shadow">
+            <p class="text-end p-2">2024-06-29</p>
+            <h1 class="text-center">Test article</h1>
+            <p class="p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum sed arcu non odio. Adipiscing at in tellus integer feugiat scelerisque varius morbi enim. A scelerisque purus semper eget duis at tellus at. Tortor at risus viverra adipiscing at in. Massa sapien faucibus et molestie ac feugiat sed lectus. Rhoncus mattis rhoncus urna neque viverra. Est pellentesque elit ullamcorper dignissim. Sed euismod nisi porta lorem mollis aliquam ut porttitor leo. Pretium lectus quam id leo in. Quam lacus suspendisse faucibus interdum posuere. Pulvinar pellentesque habitant morbi tristique senectus. Pretium aenean pharetra magna ac placerat vestibulum lectus. Ornare massa eget egestas purus viverra accumsan in nisl nisi. Aliquam etiam erat velit scelerisque in dictum non consectetur. Volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Amet mattis vulputate enim nulla aliquet porttitor.</p>
+        </article>
+        <h2 class="m-3">Comments</h2>
+        {% if comments is defined %}
+            {% for key, comment in comments %}
+                <div class="m-3 border p-2">
+                <div class="d-flex justify-content-between">
+                    <p class="text-secondary">{{ comment.login }}</p>
+                    <p class="text-secondary">{{ comment.created_at }}</p>
+                </div>
+                <p>
+                    {{ comment.text }}
+                </p>
+                <a class="answer" href="#">answer</a>
+            </div>
+            {% endfor %}
+        {% endif %}
+        <form class=" main-form m-3 w-25">
+            <div class="mb-3">
+                <label for="Login" class="form-label">Login</label>
+                <input type="text" class="form-control" id="Login" aria-describedby="Login">
+            </div>
+            <div class="mb-3">
+                <label for="floatingTextarea">Comments</label>
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+{% endblock %}
